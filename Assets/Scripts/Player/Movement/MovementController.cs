@@ -21,10 +21,11 @@ public class MovementController : MonoBehaviour
         if (playerInput == null)
             return;
 
-        MoveShip(GetInput());
+        MoveShip(GetMoveInput());
+        TakeAction();
     }
 
-    private Vector2 GetInput()
+    private Vector2 GetMoveInput()
     {
         Vector2 moveVector = playerInput.actions["Move"].ReadValue<Vector2>();
 
@@ -34,5 +35,13 @@ public class MovementController : MonoBehaviour
     private void MoveShip(Vector2 moveDir)
     {
         shipTransform.position += new Vector3(moveDir.x, moveDir.y, 0) * (shipMoveSpeed * Time.deltaTime);
+    }
+
+    private void TakeAction()
+    {
+        if (playerInput.actions["Action"].triggered)
+        {
+            Debug.Log("Action triggered");
+        }
     }
 }

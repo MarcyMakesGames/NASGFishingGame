@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScoreManager : MonoBehaviour
+public class PlayerStatsManager : MonoBehaviour
 {
-    public static PlayerScoreManager instance;
+    public static PlayerStatsManager instance;
 
     [SerializeField] private ScoreUIManager scoreUIManager;
+    [SerializeField] private CargoCapacityUIController cargoCapacityUIController;
 
     private List<PlayerObject> playerObjects;
 
@@ -66,6 +67,10 @@ public class PlayerScoreManager : MonoBehaviour
         Debug.Log("No ship hold found.");
     }
 
+    public void UpdateCargoHoldUI(PlayerID currentPlayer, int currentCargo, int maxCargo)
+    {
+        cargoCapacityUIController.UpdateUI(currentPlayer, currentCargo, maxCargo);
+    }
 
     private void Start()
     {

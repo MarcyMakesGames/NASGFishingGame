@@ -7,20 +7,27 @@ public class PlayerSpawnManager : MonoBehaviour
 {
     [SerializeField] private PlayerInputManager playerInputManager;
     [SerializeField] private PlayerScoreManager playerScoreManager;
-    private int playerIndex = 0;
-
-    public int CurrentPlayerCount { get => playerIndex; }
-
-    [ContextMenu("Spawn Player")]
-    public void SpawnPlayer()
+    [SerializeField] private bool toggleSpawning = true;
+    
+    [ContextMenu("Toggle Spawning")]
+    public void ToggleSpawning()
     {
-        playerInputManager.JoinPlayer(playerIndex);
-        playerIndex++;
+        TogglePlayerSpawning(toggleSpawning);
+    }
+
+    public void TogglePlayerSpawning(bool enableSpawning)
+    {
+        if(enableSpawning)
+            playerInputManager.EnableJoining();
+        else
+            playerInputManager.DisableJoining();
     }
 
     public void OnPlayerSpawned(PlayerInput playerInput)
     {
+        Debug.Log("Spawning new player.");
         ShipHoldController shipHold = playerInput.GetComponent<ShipHoldController>();
+
         playerScoreManager.InitNewPlayer(playerInput.playerIndex, shipHold);
     }
 

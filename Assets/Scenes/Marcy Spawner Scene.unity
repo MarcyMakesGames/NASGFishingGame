@@ -836,6 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInputManager: {fileID: 833524296}
   playerScoreManager: {fileID: 1787215079}
+  toggleSpawning: 1
 --- !u!114 &833524296 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3471093327417128463, guid: e617a8c24a885984fb18de69d4bbc4b1, type: 3}
@@ -1931,8 +1932,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3471093327417128463, guid: e617a8c24a885984fb18de69d4bbc4b1, type: 3}
+      propertyPath: m_AllowJoining
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471093327417128463, guid: e617a8c24a885984fb18de69d4bbc4b1, type: 3}
       propertyPath: m_JoinBehavior
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3471093327417128463, guid: e617a8c24a885984fb18de69d4bbc4b1, type: 3}
       propertyPath: m_NotificationBehavior

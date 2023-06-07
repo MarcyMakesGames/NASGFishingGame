@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerSpawnManager : MonoBehaviour
 {
     [SerializeField] private PlayerInputManager playerInputManager;
-    [SerializeField] private PlayerScoreManager playerScoreManager;
+    [SerializeField] private PlayerStatsManager playerScoreManager;
     [SerializeField] private bool toggleSpawning = true;
     
     [ContextMenu("Toggle Spawning")]

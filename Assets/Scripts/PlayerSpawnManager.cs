@@ -27,8 +27,9 @@ public class PlayerSpawnManager : MonoBehaviour
     {
         Debug.Log("Spawning new player.");
         ShipHoldController shipHold = playerInput.GetComponent<ShipHoldController>();
-
-        playerScoreManager.InitNewPlayer(playerInput.playerIndex, shipHold);
+        MovementController shipMove = playerInput.GetComponent<MovementController>();
+        PopUpUIController popUp = playerInput.GetComponentInChildren<PopUpUIController>();
+        playerScoreManager.InitNewPlayer(playerInput.playerIndex, shipHold, shipMove, popUp);
     }
 
     private void Awake()

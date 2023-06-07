@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ShipHoldController : MonoBehaviour
 {
     public int currentHoldCount;
-    public bool isCorporateShip;
-
     private int maxHoldCount;
 
     public void AddToShipHold()
@@ -33,11 +32,6 @@ public class ShipHoldController : MonoBehaviour
 
     public void InitShipHold(bool isCorporateShip)
     {
-        this.isCorporateShip = isCorporateShip;
-
-        if(isCorporateShip)
-            maxHoldCount = 3;
-        else
-            maxHoldCount = 1;
+        
     }
 }

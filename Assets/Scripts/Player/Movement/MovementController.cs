@@ -8,8 +8,15 @@ using UnityEngine.InputSystem;
 public class MovementController : MonoBehaviour
 {
     [SerializeField] private float shipMoveSpeed;
+    [SerializeField] private float upgradeMoveSpeed;
     [SerializeField] private Transform shipTransform;
+
     private PlayerInput playerInput;
+
+    public void UpgradeMoveSpeed()
+    {
+        shipMoveSpeed += upgradeMoveSpeed;
+    }
 
     private void Start()
     {

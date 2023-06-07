@@ -19,16 +19,9 @@ public class PopUpUIController : BaseUIElement<PopUpType>
 
     [Header("References")]
     [SerializeField] private ShipHoldController shipHoldController;
-    [SerializeField] private PopUpType testPopUp;
 
     private float currentPopUpTime = 0;
     private float currentFadeOutTime = 0;
-
-    [ContextMenu("Test Popup")]
-    public void UpdateUI()
-    {
-        UpdateUI(testPopUp);
-    }
 
     public override void UpdateUI(PopUpType primaryData)
     {

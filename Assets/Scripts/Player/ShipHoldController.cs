@@ -7,6 +7,10 @@ public class ShipHoldController : MonoBehaviour
 {
     [SerializeField] private int currentHoldCount;
     [SerializeField] private int maxHoldCount = 1;
+    [SerializeField] private int upgradeHoldCount = 1;
+    [SerializeField] private float shipSizeIncrease = 0.1f;
+    [SerializeField] private int massIncrease = 1;
+    [SerializeField] private Rigidbody2D shipRigidBody;
     private PlayerID playerID;
 
     public int CurrentCargo { get => currentHoldCount; }
@@ -27,8 +31,9 @@ public class ShipHoldController : MonoBehaviour
 
     public void ScoreShipHold()
     {
+        if(currentHoldCount <= 0)
+            return;
         PlayerStatsManager.instance.AddToScore(playerID, currentHoldCount);
-        //Score ship hold
 
         currentHoldCount = 0;
         PlayerStatsManager.instance.UpdateCargoHoldUI(playerID, currentHoldCount, maxHoldCount);
@@ -37,5 +42,12 @@ public class ShipHoldController : MonoBehaviour
     public void InitShipHold(PlayerID currentPlayer)
     {
         playerID = currentPlayer;
+    }
+
+    public void UpgradeShipHold()
+    {
+        maxHoldCount += upgradeHoldCount;
+        transform.localScale = transform.localScale + new Vector3(shipSizeIncrease, shipSizeIncrease, shipSizeIncrease);
+        shipRigidBody.mass += massIncrease;
     }
 }

@@ -11,7 +11,7 @@ public class PlayerStatsManager : MonoBehaviour
 
     private List<PlayerObject> playerObjects;
 
-    public void InitNewPlayer(int playerID, ShipHoldController shipHold)
+    public void InitNewPlayer(int playerID, ShipHoldController shipHold, MovementController shipMove, PopUpUIController popUp)
     {
         PlayerObject newPlayer = new PlayerObject();
 
@@ -43,6 +43,9 @@ public class PlayerStatsManager : MonoBehaviour
 
         Debug.Log("New Player:" + newPlayer.playerID.ToString());
         newPlayer.playerScore = 0;
+        newPlayer.playerMovement = shipMove;
+        newPlayer.playerShipHold = shipHold;
+        newPlayer.playerPopUp = popUp;
 
         if(playerObjects == null)
         {
@@ -59,7 +62,20 @@ public class PlayerStatsManager : MonoBehaviour
             if(player.playerID == currentPlayer)
             {
                 player.playerScore += scoreToAdd;
+                player.upgradeCount++;
+
                 scoreUIManager.UpdateScore(player.playerID, player.playerScore);
+
+                if(player.upgradeCount % 2 == 0)
+                {
+                    player.playerShipHold.UpgradeShipHold();
+                    player.playerPopUp.UpdateUI(PopUpType.CargoIncrease);
+                }
+                else
+                {
+                    player.playerMovement.UpgradeMoveSpeed();
+                    player.playerPopUp.UpdateUI(PopUpType.SpeedIncrease);   
+                }
                 return;
             }
         }
@@ -91,7 +107,10 @@ public class PlayerStatsManager : MonoBehaviour
 public class PlayerObject
 {
     public PlayerID playerID;
+    public int upgradeCount = 0;
+    public MovementController playerMovement;
     public ShipHoldController playerShipHold;
+    public PopUpUIController playerPopUp;
     public int playerScore;   
 }
 

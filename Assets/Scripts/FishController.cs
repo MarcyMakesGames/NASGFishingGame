@@ -11,8 +11,10 @@ public class FishController : MonoBehaviour
 
         if (scoreController != null)
         {
-            scoreController.AddToShipHold();
-            Destroy(gameObject);
+            if (scoreController.AddToShipHold())
+                Destroy(gameObject);
+            else
+                scoreController = null;
         }
     }
 }

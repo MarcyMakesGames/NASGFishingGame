@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlayerScoreManager : MonoBehaviour
 {
+    public static PlayerScoreManager instance;
+
     [SerializeField] private ScoreUIManager scoreUIManager;
 
     private List<PlayerObject> playerObjects;
 
-    public void SpawnNewPlayer(int playerID, ShipHoldController shipHold)
+    public void InitNewPlayer(int playerID, ShipHoldController shipHold)
     {
         PlayerObject newPlayer = new PlayerObject();
 
@@ -16,39 +18,67 @@ public class PlayerScoreManager : MonoBehaviour
         {
             case 0:
                 newPlayer.playerID = PlayerID.Player1;
+                shipHold.InitShipHold(PlayerID.Player1);
                 break;
 
             case 1:
                 newPlayer.playerID = PlayerID.Player2;
+                shipHold.InitShipHold(PlayerID.Player2);
                 break;
 
             case 2:
                 newPlayer.playerID = PlayerID.Player3;
+                shipHold.InitShipHold(PlayerID.Player3);
                 break;
 
             case 3:
                 newPlayer.playerID = PlayerID.Player4;
+                shipHold.InitShipHold(PlayerID.Player4);
                 break;
 
             default:
                 return;
         }
 
+        Debug.Log("New Player:" + newPlayer.playerID.ToString());
         newPlayer.playerScore = 0;
 
-        //Add to list
+        if(playerObjects == null)
+        {
+            playerObjects = new List<PlayerObject>();
+        }
+
+        playerObjects.Add(newPlayer);
     }
     
-    public void AddToScore(ShipHoldController playerHold)
+    public void AddToScore(PlayerID currentPlayer, int scoreToAdd)
     {
         foreach(PlayerObject player in playerObjects)
         {
-            if(player.playerShipHold == playerHold)
+            if(player.playerID == currentPlayer)
             {
-                player.playerScore++;
-                //scoreUIController.UpdateScore(player.playerID, player.playerScore);
+                player.playerScore += scoreToAdd;
+                scoreUIManager.UpdateScore(player.playerID, player.playerScore);
                 return;
             }
+        }
+
+        Debug.Log("No ship hold found.");
+    }
+
+
+    private void Start()
+    {
+        if (instance != null && instance != this)
+        {
+            Debug.Log("Game manager already exists.");
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
         }
     }
 }

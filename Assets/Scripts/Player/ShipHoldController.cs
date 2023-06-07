@@ -5,33 +5,34 @@ using UnityEngine.InputSystem;
 
 public class ShipHoldController : MonoBehaviour
 {
-    public int currentHoldCount;
-    private int maxHoldCount;
+    [SerializeField] private int currentHoldCount;
+    [SerializeField] private int maxHoldCount = 1;
+    private PlayerID playerID;
 
-    public void AddToShipHold()
+    public bool AddToShipHold()
     {
         if(currentHoldCount >= maxHoldCount)
         {
-            //Don't add finish, punish the players.
-            return;
+            return false;
         }
 
         //Update UI
 
-        //Add to ship hold
+        currentHoldCount++;
+
+        return true;
     }
 
     public void ScoreShipHold()
     {
-        //Update UI
-
+        PlayerScoreManager.instance.AddToScore(playerID, currentHoldCount);
         //Score ship hold
 
         currentHoldCount = 0;
     }
 
-    public void InitShipHold(bool isCorporateShip)
+    public void InitShipHold(PlayerID currentPlayer)
     {
-        
+        playerID = currentPlayer;
     }
 }

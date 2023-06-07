@@ -13,7 +13,6 @@ public class PortController : MonoBehaviour
         if (shipHoldController != null)
         {
             shipHoldController.ScoreShipHold();
-            Debug.Log("Player " + other.GetComponent<PlayerInput>().playerIndex + " entered port");
         }
     }
 }

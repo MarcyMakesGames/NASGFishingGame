@@ -21,7 +21,7 @@ public class PlayerSpawnManager : MonoBehaviour
     public void OnPlayerSpawned(PlayerInput playerInput)
     {
         ShipHoldController shipHold = playerInput.GetComponent<ShipHoldController>();
-        playerScoreManager.SpawnNewPlayer(playerInput.playerIndex, shipHold);
+        playerScoreManager.InitNewPlayer(playerInput.playerIndex, shipHold);
     }
 
     private void Awake()

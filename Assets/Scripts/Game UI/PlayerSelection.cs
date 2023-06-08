@@ -16,10 +16,10 @@ public class PlayerSelection : MonoBehaviour
 
     private void OnEnable() 
     {
-        Sprite[] childSprites = gameObject.GetComponentsInChildren<Sprite>();
-        /*foreach(Sprite spriteComponents in childSprites)
+        SpriteRenderer[] childSprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        foreach(SpriteRenderer spriteComponents in childSprites)
         {
-            spriteComponents.gameObject.transform.parent.gameObject.SetActive(true);
-        }*/
+            spriteComponents.gameObject.SetActive(true);
+        }
     }
 }

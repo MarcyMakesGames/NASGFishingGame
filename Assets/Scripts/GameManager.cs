@@ -8,10 +8,25 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameTimeController gameTimeController;
 
+    private int fishPoolCount = 0;
+
     [ContextMenu("Start Game")]
     public void StartGame()
     {
         gameTimeController.StartCountdown();
+    }
+
+    public void AddNewFishPool()
+    {
+        fishPoolCount++;
+    }
+
+    public void DepleteFishPool()
+    {
+        fishPoolCount--;
+
+        if(fishPoolCount <= 0)
+            AllFishDepleted();
     }
 
     public void CountdownComplete()
@@ -21,14 +36,7 @@ public class GameManager : MonoBehaviour
         //Display buttons for new game.
     }
 
-    public void FishDepleted()
-    {
-        //Score game
-        //Display score
-        //Display buttons for new game.
-    }
-
-    private void Start()
+    private void Awake()
     {
         if (instance != null && instance != this)
         {
@@ -41,5 +49,14 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
+    }
+
+    private void AllFishDepleted()
+    {
+        Debug.Log("All the fish are dead!");
+
+        //Score game
+        //Display score
+        //Display buttons for new game.
     }
 }

@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2772900132899961923}
   - component: {fileID: 7282872984224156293}
   - component: {fileID: 3249375903183665290}
+  - component: {fileID: 1486050643818390589}
   m_Layer: 5
   m_Name: PlayerSelectPanel
   m_TagString: Untagged
@@ -177,6 +178,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!114 &1486050643818390589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036595291359541367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8425dfb5e848bad4aae868ee02da22f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bShip: {fileID: 8315178565231354513}
+  gShip: {fileID: 3795643726315042246}
+  rShip: {fileID: 6817614859058680237}
+  yShip: {fileID: 7055804261404266819}
+  playerIM: {fileID: 0}
+  playerSM: {fileID: 0}
 --- !u!1 &2577806788190800105
 GameObject:
   m_ObjectHideFlags: 0

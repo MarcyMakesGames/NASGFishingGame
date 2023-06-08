@@ -29,6 +29,25 @@ public class PlayerSpawnManager : MonoBehaviour
         ShipHoldController shipHold = playerInput.GetComponent<ShipHoldController>();
         MovementController shipMove = playerInput.GetComponent<MovementController>();
         PopUpUIController popUp = playerInput.GetComponentInChildren<PopUpUIController>();
+
+        switch(playerInput.playerIndex)
+        {
+            case 0:
+                playerInput.gameObject.transform.position = FindObjectOfType<PortController>().GetPlayerSpawnPosition(PlayerID.Player1).position;
+                break;
+            case 1:
+                playerInput.gameObject.transform.position = FindObjectOfType<PortController>().GetPlayerSpawnPosition(PlayerID.Player2).position;
+                break;
+            case 2:
+                playerInput.gameObject.transform.position = FindObjectOfType<PortController>().GetPlayerSpawnPosition(PlayerID.Player3).position;
+                break;
+            case 3:
+                playerInput.gameObject.transform.position = FindObjectOfType<PortController>().GetPlayerSpawnPosition(PlayerID.Player4).position;
+                break;
+            default:
+                break;
+        }
+
         playerScoreManager.InitNewPlayer(playerInput.playerIndex, shipHold, shipMove, popUp);
     }
 

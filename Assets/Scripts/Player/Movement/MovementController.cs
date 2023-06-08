@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 public class MovementController : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class MovementController : MonoBehaviour
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
+        playerInput.uiInputModule = FindObjectOfType<PlayerInputManager>().GetComponent<PlayerInputUIInputModule>();
     }
 
     private void Update()
@@ -35,6 +37,7 @@ public class MovementController : MonoBehaviour
     private Vector2 GetMoveInput()
     {
         Vector2 moveVector = playerInput.actions["Move"].ReadValue<Vector2>();
+        
 
         return moveVector;
     }

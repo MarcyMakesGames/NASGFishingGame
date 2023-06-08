@@ -24,10 +24,20 @@ public class FishPoolUIController : BaseUIElement<int, int>
 
         if (fishList == null)
             fishList = new List<GameObject>();
-        
-        UpdateMaxFishIcons(secondaryData);
 
-        for(int i = 0; i < secondaryData; i++)
+        UpdateMaxFishIcons(secondaryData);
+        UpdateAvailableFishIcons(primaryData, secondaryData);
+    }
+
+    private void UpdateAvailableFishIcons(int primaryData, int secondaryData)
+    {
+        if(primaryData == 0)
+        {
+            ClearUI();
+            return;
+        }
+
+        for (int i = 0; i < secondaryData; i++)
         {
             if (i < primaryData)
                 fishList[i].GetComponent<Image>().color = availableFishColor;

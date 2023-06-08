@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public PlayerID playerID;
+    public int upgradeCount = 0;
+    public MovementController playerMovement;
+    public ShipHoldController playerShipHold;
+    public PopUpUIController playerPopUp;
+    public int playerScore;
 }

@@ -29,6 +29,8 @@ public class FishPoolController : MonoBehaviour
 
         fishPoolUIController = fishPoolUIManager.GetFishPoolUIElement(this.transform);
         UpdateSpawnerUI();
+
+        GameManager.instance.AddNewFishPool();
     }
 
     private void Update()
@@ -87,8 +89,6 @@ public class FishPoolController : MonoBehaviour
 
     private void SpawnFish()
     {
-        Debug.Log("Spawning a fish! Available fish: " + availableFish);
-
         var point = new Vector2(
             Random.Range(poolArea.bounds.min.x, poolArea.bounds.max.x),
             Random.Range(poolArea.bounds.min.y, poolArea.bounds.max.y));
@@ -102,6 +102,8 @@ public class FishPoolController : MonoBehaviour
         {
             canRegenerateFish = false;
             Debug.Log("No more fish!");
+
+            GameManager.instance.DepleteFishPool();
         }
 
         UpdateSpawnerUI();

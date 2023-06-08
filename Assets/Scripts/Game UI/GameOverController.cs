@@ -17,10 +17,13 @@ public class GameOverController : MonoBehaviour
     [SerializeField]
     private Button retryButton;
 
+    private Image flag;
+
     // function to be called when the player reaches the game end condition
     public void ShowGameOverUI(int finalScore, string richMessage)
     {
         Debug.Log("Game Over Displayed!");
+        
         scoreText.text = "Final Score: \n" + finalScore.ToString(); // display the final score
         messageText.text = richMessage; // display the rich message
         gameObject.SetActive(true); // activate the Game Over window to show the UI elements

@@ -6,23 +6,35 @@ using TMPro;
 
 public class GameOverController : MonoBehaviour
 {
+    private TMP_Text titleText; // 'Game Over' title for the window
+    
     [SerializeField]
     private TMP_Text scoreText; // reference to the Text component that will display the final score
-    private TMP_Text titleText; // reference to the Text component that will display the rich message
     [SerializeField]
-    private TMP_Text messageText;
+    private TMP_Text messageText; // reference to the Text component that will display the rich message
 
     // function to be called when the player reaches the game end condition
     public void ShowGameOverUI(int finalScore, string richMessage)
     {
+        Debug.Log("Game Over Displayed!");
         scoreText.text = "Final Score: \n" + finalScore.ToString(); // display the final score
         messageText.text = richMessage; // display the rich message
-        gameObject.SetActive(true); // activate the GameOverUI object to show the UI elements
+        gameObject.SetActive(true); // activate the Game Over window to show the UI elements
     }
 
     // function to be called when the player restarts the game
     public void HideGameOverUI()
     {
-        gameObject.SetActive(false); // deactivate the GameOverUI object to hide the UI elements
+        gameObject.SetActive(false); // deactivate the Game Over object to hide the UI window and components
+    }
+
+    public void InitiateRetry()
+    {
+        // Stuff that happens when you click retry
+    }
+
+    public void QuitGame() // Quits the game when you click on Quit button
+    {
+        Application.Quit();
     }
 }

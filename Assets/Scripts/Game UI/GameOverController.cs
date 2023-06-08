@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class GameOverController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameOverController : MonoBehaviour
     private TMP_Text scoreText; // reference to the Text component that will display the final score
     [SerializeField]
     private TMP_Text messageText; // reference to the Text component that will display the rich message
+    [SerializeField]
+    private Button retryButton;
 
     // function to be called when the player reaches the game end condition
     public void ShowGameOverUI(int finalScore, string richMessage)
@@ -25,7 +28,11 @@ public class GameOverController : MonoBehaviour
 
     private void OnEnable() 
     {
-        //something on enable
+        foreach(PlayerInput player in FindObjectsOfType<PlayerInput>())
+        {
+            player.SwitchCurrentActionMap("UI");
+            EventSystem.current.SetSelectedGameObject(retryButton.gameObject);
+        }
     }
 
     // function to be called when the player restarts the game

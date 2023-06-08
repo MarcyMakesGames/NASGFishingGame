@@ -2163,6 +2163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1838856492}
   messageText: {fileID: 277955573}
+  retryButton: {fileID: 2005891701}
 --- !u!1 &765373165
 GameObject:
   m_ObjectHideFlags: 0

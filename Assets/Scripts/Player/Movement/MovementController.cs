@@ -13,6 +13,7 @@ public class MovementController : MonoBehaviour
     [SerializeField] private Transform shipTransform;
 
     private PlayerInput playerInput;
+    private bool gameStarted = false;
 
     public void UpgradeMoveSpeed()
     {
@@ -27,11 +28,16 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        if (playerInput == null)
+        if (playerInput == null || !gameStarted)
             return;
 
         MoveShip(GetMoveInput());
         TakeAction();
+    }
+    
+    private void EnablePlayerMovement()
+    {
+        gameStarted = true;
     }
 
     private Vector2 GetMoveInput()

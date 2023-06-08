@@ -22,7 +22,8 @@ public class MovementController : MonoBehaviour
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
-        playerInput.uiInputModule = FindObjectOfType<PlayerInputManager>().GetComponent<PlayerInputUIInputModule>();
+        playerInput.SwitchCurrentActionMap("UI");
+        playerInput.uiInputModule = FindObjectOfType<InputSystemUIInputModule>();
     }
 
     private void Update()

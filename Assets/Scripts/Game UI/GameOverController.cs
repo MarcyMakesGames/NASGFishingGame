@@ -42,6 +42,7 @@ public class GameOverController : MonoBehaviour
     public void InitiateRetry()
     {
         // Stuff that happens when you click retry
+        Debug.Log("Retry");
     }
 
     public void QuitGame() // Quits the game when you click on Quit button

@@ -25,7 +25,7 @@ public class FishPoolController : MonoBehaviour
         currentRechargeTimer = rechargeInterval;
 
         if (fishPoolUIManager == null)
-            Debug.Log("Oops.");
+            Debug.Log("FishPoolController did not find the assigned reference to the FishPoolUIManager.");
 
         fishPoolUIController = fishPoolUIManager.GetFishPoolUIElement(this.transform);
         UpdateSpawnerUI();

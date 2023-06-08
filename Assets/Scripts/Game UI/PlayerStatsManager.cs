@@ -104,20 +104,5 @@ public class PlayerStatsManager : MonoBehaviour
     }
 }
 
-public class PlayerObject
-{
-    public PlayerID playerID;
-    public int upgradeCount = 0;
-    public MovementController playerMovement;
-    public ShipHoldController playerShipHold;
-    public PopUpUIController playerPopUp;
-    public int playerScore;   
-}
 
-public enum PlayerID
-{
-    Player1,
-    Player2,
-    Player3,
-    Player4
-}
+

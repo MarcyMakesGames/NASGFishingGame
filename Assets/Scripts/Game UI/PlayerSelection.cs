@@ -2,24 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class PlayerSelection : MonoBehaviour
 {
     [SerializeField]
-    private Sprite bShip;
+    private SpriteRenderer bShip;
     [SerializeField]
-    private Sprite gShip;
+    private SpriteRenderer gShip;
     [SerializeField]
-    private Sprite rShip;
+    private SpriteRenderer rShip;
     [SerializeField]
-    private Sprite yShip;
+    private SpriteRenderer yShip;
 
-    private void OnEnable() 
+    private void Update()
     {
-        SpriteRenderer[] childSprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
-        foreach(SpriteRenderer spriteComponents in childSprites)
+                
+    }
+    public void AddPlayers(PlayerID pID)
+    {
+        if(Input.anyKeyDown)
         {
-            spriteComponents.gameObject.SetActive(true);
+            switch (pID)
+            {
+                case PlayerID.Player1:
+                    bShip.gameObject.SetActive(true);
+                    break;
+                case PlayerID.Player2:
+                    gShip.gameObject.SetActive(true);
+                    break;
+                case PlayerID.Player3:
+                    rShip.gameObject.SetActive(true);
+                    break;
+                case PlayerID.Player4:
+                    yShip.gameObject.SetActive(true);
+                    break;
+            }
+
         }
     }
 }

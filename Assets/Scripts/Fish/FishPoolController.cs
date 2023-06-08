@@ -7,7 +7,6 @@ public class FishPoolController : MonoBehaviour
     [Header("References")]
     [SerializeField] private FishPoolUIManager fishPoolUIManager;
     [SerializeField] private GameObject fishPrefab;
-    [SerializeField] private Canvas gameCanvas;
     [SerializeField] private Collider2D poolArea;
     
     [Header("Settings")]
@@ -25,7 +24,11 @@ public class FishPoolController : MonoBehaviour
         availableFish = maxFishCount;
         currentRechargeTimer = rechargeInterval;
 
+        if (fishPoolUIManager == null)
+            Debug.Log("Oops.");
+
         fishPoolUIController = fishPoolUIManager.GetFishPoolUIElement(this.transform);
+        UpdateSpawnerUI();
     }
 
     private void Update()
@@ -101,11 +104,11 @@ public class FishPoolController : MonoBehaviour
             Debug.Log("No more fish!");
         }
 
-        //Update spawner UI
+        UpdateSpawnerUI();
     }
 
     private void UpdateSpawnerUI()
     {
-        //Check available fish count and update UI
+        fishPoolUIController.UpdateUI(availableFish, maxFishCount);
     }
 }

@@ -5,10 +5,11 @@ using UnityEngine;
 public class FishPoolUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject fishPoolUIPrefab;
-    [SerializeField] private RectTransform rectTransform;
+
     public FishPoolUIController GetFishPoolUIElement(Transform anchorTransform)
     {
-        GameObject fishPoolUIObject = Instantiate(fishPoolUIPrefab, rectTransform);
+        GameObject fishPoolUIObject = Instantiate(fishPoolUIPrefab, this.transform);
+
         FishPoolUIController fishPoolUIController = fishPoolUIObject.GetComponent<FishPoolUIController>();
 
         fishPoolUIController.InitUIController(anchorTransform);

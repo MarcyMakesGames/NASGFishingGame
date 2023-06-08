@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class GameOverController : MonoBehaviour
@@ -22,10 +23,20 @@ public class GameOverController : MonoBehaviour
         gameObject.SetActive(true); // activate the Game Over window to show the UI elements
     }
 
+    private void OnEnable() 
+    {
+        //something on enable
+    }
+
     // function to be called when the player restarts the game
     public void HideGameOverUI()
     {
         gameObject.SetActive(false); // deactivate the Game Over object to hide the UI window and components
+    }
+
+    private void OnDisable() 
+    {
+        // something on disable
     }
 
     public void InitiateRetry()

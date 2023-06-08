@@ -42,8 +42,10 @@ public class EndangeredAnimalController : MonoBehaviour
         if (scoreController != null)
         {
             Debug.Log("Died.");
-            deathParticles.Play();
             isDead = true;
+            deathParticles.Play();
+
+            animalSpawner.EnableAnimalSpawn();
         }
     }
 

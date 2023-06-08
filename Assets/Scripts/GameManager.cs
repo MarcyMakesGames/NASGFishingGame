@@ -53,6 +53,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        StartGame();
+    }
+
     private void AllFishDepleted()
     {
         Debug.Log("All the fish are dead!");

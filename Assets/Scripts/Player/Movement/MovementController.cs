@@ -24,6 +24,7 @@ public class MovementController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         playerInput.uiInputModule = FindObjectOfType<InputSystemUIInputModule>();
+        PlayerSelection.OnPlayersReady += EnablePlayerMovement;
     }
 
     private void Update()
@@ -43,7 +44,6 @@ public class MovementController : MonoBehaviour
     private Vector2 GetMoveInput()
     {
         Vector2 moveVector = playerInput.actions["Move"].ReadValue<Vector2>();
-        
 
         return moveVector;
     }

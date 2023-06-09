@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3244948498981946004}
   - component: {fileID: 3471093327417128463}
+  - component: {fileID: 6625544105735322105}
   m_Layer: 0
   m_Name: Player Spawner
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3471093327417128463
 MonoBehaviour:
@@ -44,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_MaxPlayerCount: 4
   m_AllowJoining: 1
   m_JoinBehavior: 0
@@ -57,10 +58,10 @@ MonoBehaviour:
   m_JoinAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Join
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: ab904408-0b3f-4178-967b-4ce2223f21c8
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -76,3 +77,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &6625544105735322105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289816421833622779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e750aabe945a144aba703951aad40b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInputManager: {fileID: 3471093327417128463}
+  playerScoreManager: {fileID: 0}
+  toggleSpawning: 1

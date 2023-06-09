@@ -94,6 +94,9 @@ public class FishPoolController : MonoBehaviour
             Random.Range(poolArea.bounds.min.y, poolArea.bounds.max.y));
 
         GameObject newFish = Instantiate(fishPrefab, point, Quaternion.identity, this.transform);
+        FishController fishController = newFish.GetComponent<FishController>();
+        fishController.InitFishBoundaries(poolArea);
+
         currentSpawnedFish = newFish;
 
         availableFish--;

@@ -11,6 +11,8 @@ public class PlayerStatsManager : MonoBehaviour
 
     private List<PlayerObject> playerObjects;
 
+    public List<PlayerObject> PlayerObjects { get => playerObjects; }
+
     public void InitNewPlayer(int playerID, ShipHoldController shipHold, MovementController shipMove, PopUpUIController popUp)
     {
         PlayerObject newPlayer = new PlayerObject();

@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331994abcadafc440b32babb1ee761f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  cargoSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  speedSprite: {fileID: 21300000, guid: b77a2ffe18239d64bafdc77da7acc057, type: 3}
+  cargoSprite: {fileID: 21300000, guid: c725b751ae31c834ebdfbeecb018c850, type: 3}
   fishSprite: {fileID: 21300000, guid: 04d9cdfc54a6a485d83a3d78a3139505, type: 3}
   popUpSpriteRenderer: {fileID: 5261154687996683266}
   popUpBackgroundRenderer: {fileID: 391539446624146261}
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
-  m_DefaultActionMap: be2fc795-86eb-407d-846a-dfcf95887561
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!50 &-2211616994764973525
@@ -5184,8 +5184,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7842925001410108823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalPosition: {x: -0.29, y: 0.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4097492311214607127}
@@ -5232,8 +5232,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.990566, g: 0.22801708, b: 0.22801708, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b77a2ffe18239d64bafdc77da7acc057, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

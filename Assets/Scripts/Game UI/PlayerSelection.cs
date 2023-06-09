@@ -15,6 +15,12 @@ public class PlayerSelection : MonoBehaviour
     public delegate void onPlayersReady();
     public static event onPlayersReady OnPlayersReady;
 
+    public void StartGame()
+    {
+        GameManager.instance.StartGame();
+        OnPlayersReady?.Invoke();
+    }
+
     private void Start()
     {
         playerInputManager.onPlayerJoined += OnPlayerSpawned;

@@ -98,7 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171fbb4b449a6184f9e126a066ab4e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trashSpawnChance: 30
+  spriteRenderer: {fileID: 7806772210129782295}
+  moveSpeed: 1
+  minWaitTime: 1
+  maxWaitTime: 8
+  trashSpawnChance: 20
   trashPrefab: {fileID: 6951552244191733286, guid: df45687132eb7e14980bdacbe18fc196, type: 3}
 --- !u!70 &8809803370545981515
 CapsuleCollider2D:

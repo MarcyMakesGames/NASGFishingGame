@@ -8,6 +8,7 @@ using UnityEngine.InputSystem.UI;
 
 public class MovementController : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private float shipMoveSpeed;
     [SerializeField] private float upgradeMoveSpeed;
     [SerializeField] private Transform shipTransform;
@@ -61,6 +62,11 @@ public class MovementController : MonoBehaviour
     private Vector2 GetMoveInput()
     {
         Vector2 moveVector = playerInput.actions["Move"].ReadValue<Vector2>();
+
+        if(moveVector.x > 0)
+            spriteRenderer.flipX = false;
+        else if(moveVector.x < 0)
+            spriteRenderer.flipX = true;
 
         return moveVector;
     }

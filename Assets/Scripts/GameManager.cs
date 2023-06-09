@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     private int fishPoolCount = 0;
 
-    [ContextMenu("Start Game")]
     public void StartGame()
     {
         gameTimeController.StartCountdown();

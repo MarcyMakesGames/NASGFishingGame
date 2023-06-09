@@ -9,8 +9,14 @@ using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
+    [TextArea(3, 10)][SerializeField] private string equalityText;
+    [TextArea(3, 10)][SerializeField] private string tieText;
+    [TextArea(3, 10)][SerializeField] private string singleWinnerText;
+    [TextArea(3, 10)][SerializeField] private string nonDepletedText;
+    [TextArea(3, 10)][SerializeField] private string depletedText;
     [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private TMP_Text messageText;
+    [SerializeField] private TMP_Text winConditionText;
+    [SerializeField] private TMP_Text depletionText;
     [SerializeField] private Button retryButton;
 
     // function to be called when the player reaches the game end condition
@@ -21,9 +27,9 @@ public class GameOverController : MonoBehaviour
 
         if(players.Count == 1)
         {
-            messageText.text = players[0].ToString() + " wins!";
+            winConditionText.text = players[0].ToString() + singleWinnerText;
         }
-        else
+        else if(players.Count < 4 && players.Count > 1)
         {
             string winText = "";
 
@@ -34,18 +40,19 @@ public class GameOverController : MonoBehaviour
                     winText += "and ";
             }
 
-            winText += "win!";
-            messageText.text = winText;
-        }
-    }
+            winText += tieText;
 
-    private void OnEnable() 
-    {
-        /*foreach(PlayerInput player in FindObjectsOfType<PlayerInput>())
+            winConditionText.text = winText;
+        }
+        else if(players.Count == 4)
         {
-            player.SwitchCurrentActionMap("UI");
-            EventSystem.current.SetSelectedGameObject(retryButton.gameObject);
-        }*/
+            winConditionText.text = equalityText;
+        }
+
+        if (fishDepleted)
+            depletionText.text = depletedText;
+        else
+            depletionText.text = nonDepletedText;
     }
 
     // function to be called when the player restarts the game

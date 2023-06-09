@@ -64,21 +64,26 @@ public class PlayerStatsManager : MonoBehaviour
             if(player.playerID == currentPlayer)
             {
                 player.playerScore += scoreToAdd;
-                player.upgradeCount++;
 
                 scoreUIManager.UpdateScore(player.playerID, player.playerScore);
 
-                if(player.upgradeCount % 2 == 0)
+                Debug.Log("Player " + player.playerID.ToString() + " score: " + player.playerScore.ToString() + " upgrades: " + player.upgradeCount);
+                if(player.playerScore >= player.upgradeCount * 3)
                 {
-                    player.playerShipHold.UpgradeShipHold();
-                    player.playerPopUp.UpdateUI(PopUpType.CargoIncrease);
+                    player.upgradeCount++;
+
+                    if (player.upgradeCount % 2 == 0)
+                    {
+                        player.playerShipHold.UpgradeShipHold();
+                        player.playerPopUp.UpdateUI(PopUpType.CargoIncrease);
+                    }
+                    else
+                    {
+                        player.playerMovement.UpgradeMoveSpeed();
+                        player.playerPopUp.UpdateUI(PopUpType.SpeedIncrease);
+                    }
+                    return;
                 }
-                else
-                {
-                    player.playerMovement.UpgradeMoveSpeed();
-                    player.playerPopUp.UpdateUI(PopUpType.SpeedIncrease);   
-                }
-                return;
             }
         }
 

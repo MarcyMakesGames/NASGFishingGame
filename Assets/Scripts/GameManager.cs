@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public delegate void onFishPoolDepleted();
+    public static event onFishPoolDepleted OnFishPoolDepleted;
 
     [SerializeField] private PlayerStatsManager playerStatsManager;
     [SerializeField] private GameTimeController gameTimeController;
@@ -26,15 +28,16 @@ public class GameManager : MonoBehaviour
     public void DepleteFishPool()
     {
         fishPoolCount--;
+        OnFishPoolDepleted?.Invoke();
 
-        if(fishPoolCount <= 0)
+        if (fishPoolCount <= 0)
             AllFishDepleted();
     }
 
     public void CountdownComplete()
     {
         List<PlayerID> list = ScoreGame();
-        GOController.ShowGameOverUI(list);
+        GOController.ShowGameOverUI(list, false);
     }
 
     private void Awake()
@@ -55,7 +58,7 @@ public class GameManager : MonoBehaviour
     private void AllFishDepleted()
     {
         List<PlayerID> list = ScoreGame();
-        GOController.ShowGameOverUI(list);
+        GOController.ShowGameOverUI(list, true);
     }
     
     private List<PlayerID> ScoreGame()

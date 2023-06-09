@@ -14,7 +14,7 @@ public class GameOverController : MonoBehaviour
     [SerializeField] private Button retryButton;
 
     // function to be called when the player reaches the game end condition
-    public void ShowGameOverUI(List<PlayerID> players)
+    public void ShowGameOverUI(List<PlayerID> players, bool fishDepleted)
     {
         gameOverPanel.SetActive(true);
         Debug.Log("Game Over Displayed!");

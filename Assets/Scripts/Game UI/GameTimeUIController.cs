@@ -18,7 +18,14 @@ public class GameTimeUIController : BaseUIElement<int>
         if (seconds == 0)
             timeText.text = minutes.ToString() + ":00";
         else
-            timeText.text = minutes.ToString() + ":" + seconds.ToString();
+        {
+            if (seconds < 10)
+            {
+                timeText.text = minutes.ToString() + ":0" + seconds.ToString();
+            }
+            else
+                timeText.text = minutes.ToString() + ":" + seconds.ToString();
+        }
     }
 
     protected override bool ClearedIfEmpty(int newData)

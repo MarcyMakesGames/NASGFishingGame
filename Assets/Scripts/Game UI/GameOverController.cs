@@ -5,30 +5,38 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
-    private TMP_Text titleText; // 'Game Over' title for the window
-    
-    [SerializeField]
-    private TMP_Text scoreText; // reference to the Text component that will display the final score
-    [SerializeField]
-    private TMP_Text messageText; // reference to the Text component that will display the rich message
-    [SerializeField]
-    private Button retryButton;
-
-
-
-    private Image flag;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private TMP_Text messageText;
+    [SerializeField] private Button retryButton;
 
     // function to be called when the player reaches the game end condition
-    public void ShowGameOverUI(int finalScore, string richMessage)
+    public void ShowGameOverUI(List<PlayerID> players)
     {
+        gameOverPanel.SetActive(true);
         Debug.Log("Game Over Displayed!");
-        
-        scoreText.text = "Final Score: \n" + finalScore.ToString(); // display the final score
-        messageText.text = richMessage; // display the rich message
-        gameObject.SetActive(true); // activate the Game Over window to show the UI elements
+
+        if(players.Count == 1)
+        {
+            messageText.text = players[0].ToString() + " wins!";
+        }
+        else
+        {
+            string winText = "";
+
+            for(int i = 0; i < players.Count; i++)
+            {
+                winText += players[i].ToString()+" ";
+                if(i < players.Count - 1)
+                    winText += "and ";
+            }
+
+            winText += "win!";
+            messageText.text = winText;
+        }
     }
 
     private void OnEnable() 
@@ -53,8 +61,9 @@ public class GameOverController : MonoBehaviour
 
     public void InitiateRetry()
     {
-        // Stuff that happens when you click retry
-        Debug.Log("Retry");
+        Destroy(GameManager.instance.gameObject);
+
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame() // Quits the game when you click on Quit button

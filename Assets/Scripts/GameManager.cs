@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField] private PlayerStatsManager playerStatsManager;
     [SerializeField] private GameTimeController gameTimeController;
     [SerializeField] private GameOverController GOController;
 
@@ -32,10 +33,8 @@ public class GameManager : MonoBehaviour
 
     public void CountdownComplete()
     {
-        //Score game
-        //Display score
-        //Display buttons for new game.
-        GOController.ShowGameOverUI(10000, "Hello World");
+        List<PlayerID> list = ScoreGame();
+        GOController.ShowGameOverUI(list);
     }
 
     private void Awake()
@@ -55,10 +54,34 @@ public class GameManager : MonoBehaviour
 
     private void AllFishDepleted()
     {
-        Debug.Log("All the fish are dead!");
+        List<PlayerID> list = ScoreGame();
+        GOController.ShowGameOverUI(list);
+    }
+    
+    private List<PlayerID> ScoreGame()
+    {
+        List<PlayerObject> playerObjects = playerStatsManager.PlayerObjects;
 
-        //Score game
-        //Display score
-        //Display buttons for new game.
+        int highestScore = 0;
+
+        foreach(PlayerObject player in playerObjects)
+        {
+            if(player.playerScore > highestScore)
+            {
+                highestScore = player.playerScore;
+            }
+        }
+
+        List<PlayerID> winners = new List<PlayerID>();
+
+        foreach(PlayerObject player in playerObjects)
+        {
+            if(player.playerScore >= highestScore)
+            {
+                winners.Add(player.playerID);
+            }
+        }
+
+        return winners;
     }
 }

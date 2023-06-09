@@ -464,12 +464,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 348206194632132074, guid: 3f416da54213fe2478762113e1a45ba4, type: 3}
-      propertyPath: equalityText
-      value: By working together, each of the companies were able to regulate their
-        fishing and guarantee a future for the region's wildlife. While not perfect,
-        Reykjaneshryggur made great headway towards a better life.
-      objectReference: {fileID: 0}
     - target: {fileID: 2154303954095792691, guid: 3f416da54213fe2478762113e1a45ba4, type: 3}
       propertyPath: playerInputManager
       value: 

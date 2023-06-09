@@ -661,7 +661,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: -30, y: -100}
   m_SizeDelta: {x: 1920, y: 108.2601}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9072352402373961382
@@ -720,7 +720,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 30
   m_ChildAlignment: 4
-  m_Spacing: 10
+  m_Spacing: 50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -2953,7 +2953,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equalityText: By working together, each of the companies were able to regulate
-    their fishing and guarantee
+    their fishing and guarantee a future for the region's wildlife. While not perfect,
+    Reykjaneshryggur made great headway towards a better life.
   tieText: ' were each fierce competitors and managed to reach an agreement, splitting
     a monopoly over Reykjaneshryggur, much to everyone''s dismay.'
   singleWinnerText: ' won handily! Becoming the biggest fishing company in Iceland,

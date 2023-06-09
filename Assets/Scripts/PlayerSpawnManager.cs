@@ -23,7 +23,7 @@ public class PlayerSpawnManager : MonoBehaviour
             playerInputManager.DisableJoining();
     }
 
-    public void OnPlayerSpawned(PlayerInput playerInput)
+    private void OnPlayerSpawned(PlayerInput playerInput)
     {
         Debug.Log("Spawning new player.");
         ShipHoldController shipHold = playerInput.GetComponent<ShipHoldController>();

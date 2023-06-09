@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerSelection : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class PlayerSelection : MonoBehaviour
     [SerializeField] private GameObject player2;
     [SerializeField] private GameObject player3;
     [SerializeField] private GameObject player4;
+    [SerializeField] private TMP_Text countdownText;
+    [SerializeField] private TMP_Text statusText;
+    [SerializeField] private float countdownTime = 4f;
+
+    private bool countDown = false;
+    private float currentCountdown;
+    private int currentSecond = 5;
 
     public delegate void onPlayersReady();
     public static event onPlayersReady OnPlayersReady;
@@ -25,6 +33,13 @@ public class PlayerSelection : MonoBehaviour
     {
         playerInputManager.onPlayerJoined += OnPlayerSpawned;
         OnPlayersReady += DisablePlayerSelection;
+        currentCountdown = countdownTime;
+        statusText.text = "Waiting for players...";
+    }
+
+    private void Update()
+    {
+        Countdown();
     }
 
     private void OnPlayerSpawned(PlayerInput playerInput)
@@ -42,8 +57,8 @@ public class PlayerSelection : MonoBehaviour
                 break;
             case 3:
                 player4.SetActive(true);
-                GameManager.instance.StartGame();
-                OnPlayersReady?.Invoke();
+                countDown = true;
+                statusText.text = "Game begins in...";
                 break;
             default:
                 break;
@@ -53,5 +68,34 @@ public class PlayerSelection : MonoBehaviour
     private void DisablePlayerSelection()
     {
         gameObject.SetActive(false);
+    }
+
+    private void Countdown()
+    {
+        if (!countDown)
+            return;
+
+        currentCountdown -= Time.deltaTime;
+
+        UpdateCountdownText(currentCountdown);
+
+        if(currentCountdown <= 0)
+        {
+            GameManager.instance.StartGame();
+            OnPlayersReady?.Invoke();
+
+            countDown = false;
+        }
+    }
+
+    private void UpdateCountdownText(float timeLeft)
+    {
+        int secondsLeft = Mathf.FloorToInt(timeLeft);
+
+        if(currentSecond != secondsLeft)
+        {
+            currentSecond = secondsLeft;
+            countdownText.text = currentSecond.ToString();
+        }
     }
 }

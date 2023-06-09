@@ -43,7 +43,6 @@ public class PlayerStatsManager : MonoBehaviour
                 return;
         }
 
-        Debug.Log("New Player:" + newPlayer.playerID.ToString());
         newPlayer.playerScore = 0;
         newPlayer.playerMovement = shipMove;
         newPlayer.playerShipHold = shipHold;
@@ -67,7 +66,6 @@ public class PlayerStatsManager : MonoBehaviour
 
                 scoreUIManager.UpdateScore(player.playerID, player.playerScore);
 
-                Debug.Log("Player " + player.playerID.ToString() + " score: " + player.playerScore.ToString() + " upgrades: " + player.upgradeCount);
                 if(player.playerScore >= player.upgradeCount * 3)
                 {
                     player.upgradeCount++;
@@ -86,8 +84,6 @@ public class PlayerStatsManager : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log("No ship hold found.");
     }
 
     public void UpdateCargoHoldUI(PlayerID currentPlayer, int currentCargo, int maxCargo)
@@ -99,7 +95,6 @@ public class PlayerStatsManager : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
-            Debug.Log("Game manager already exists.");
             Destroy(this.gameObject);
             return;
         }

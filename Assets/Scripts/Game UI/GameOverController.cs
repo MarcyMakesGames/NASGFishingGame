@@ -17,6 +17,8 @@ public class GameOverController : MonoBehaviour
     [SerializeField]
     private Button retryButton;
 
+
+
     private Image flag;
 
     // function to be called when the player reaches the game end condition
@@ -31,11 +33,11 @@ public class GameOverController : MonoBehaviour
 
     private void OnEnable() 
     {
-        foreach(PlayerInput player in FindObjectsOfType<PlayerInput>())
+        /*foreach(PlayerInput player in FindObjectsOfType<PlayerInput>())
         {
             player.SwitchCurrentActionMap("UI");
             EventSystem.current.SetSelectedGameObject(retryButton.gameObject);
-        }
+        }*/
     }
 
     // function to be called when the player restarts the game

@@ -12,7 +12,7 @@ public class MainMenuController : MonoBehaviour
     public void StartNewGame()
     {
         //change scene
-        SceneManager.LoadScene("MatijaGameOver");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void ExitGame()

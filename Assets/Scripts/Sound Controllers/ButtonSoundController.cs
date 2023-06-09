@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(AudioSource))]
-public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
+public class ButtonSoundController : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
     [SerializeField]
     private AudioClip hoverSound;

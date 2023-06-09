@@ -212,16 +212,8 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.99
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalPosition.y
@@ -258,6 +250,14 @@ PrefabInstance:
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985869719863219742, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396101167058280556, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
+      propertyPath: maxFishCount
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7396101167058280556, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: fishPoolUIManager
@@ -300,16 +300,12 @@ PrefabInstance:
       value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.75
+      value: -0.91
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.73
+      value: 1.18
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalPosition.z
@@ -342,6 +338,14 @@ PrefabInstance:
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985869719863219742, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396101167058280556, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
+      propertyPath: maxFishCount
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7396101167058280556, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: fishPoolUIManager
@@ -411,6 +415,14 @@ PrefabInstance:
     - target: {fileID: 3672959710254932091, guid: 3f416da54213fe2478762113e1a45ba4, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255400955693583007, guid: 3f416da54213fe2478762113e1a45ba4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255400955693583007, guid: 3f416da54213fe2478762113e1a45ba4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6372667384272910857, guid: 3f416da54213fe2478762113e1a45ba4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -615,10 +627,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2621720659602554500, guid: 3f416da54213fe2478762113e1a45ba4, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2239759975400283021, guid: 3f416da54213fe2478762113e1a45ba4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1806971582}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f416da54213fe2478762113e1a45ba4, type: 3}
 --- !u!114 &444829256 stripped
@@ -718,20 +727,16 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.89
+      value: -4.51
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.93
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalPosition.z
@@ -764,6 +769,10 @@ PrefabInstance:
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985869719863219742, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7396101167058280556, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: maxFishCount
@@ -1348,20 +1357,16 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.75
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.92
+      value: 2.22
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.99
+      value: -0.43
       objectReference: {fileID: 0}
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1394,6 +1399,10 @@ PrefabInstance:
     - target: {fileID: 3579670684823272808, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985869719863219742, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7396101167058280556, guid: e79fc28d6e6d68841b767f60814b1ece, type: 3}
       propertyPath: maxFishCount

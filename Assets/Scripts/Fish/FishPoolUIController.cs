@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,24 +14,106 @@ public class FishPoolUIController : BaseUIElement<int, int>
     [Header("Settings")]
     [SerializeField] private Color availableFishColor;
     [SerializeField] private Color unavailableFishColor;
+    [SerializeField] private float flashSpeed;
 
     private Transform targetTransform;
     private List<GameObject> fishList;
+    private List<GameObject> unavailableFishList;
+    private bool fadeOut = true;
+    private float currentFlashSpeed;
     
     public override void UpdateUI(int primaryData, int secondaryData)
     {
         if (ClearedIfEmpty(primaryData, secondaryData))
             return;
 
-        if (fishList == null)
-            fishList = new List<GameObject>();
-
         UpdateMaxFishIcons(secondaryData);
         UpdateAvailableFishIcons(primaryData, secondaryData);
     }
 
+    public void InitUIController(Transform targetTransform)
+    {
+        this.targetTransform = targetTransform;
+        fishList = new List<GameObject>();
+    }
+
+    private void Update()
+    {
+        FlashRechargeIcons();
+        MoveToPoolWorldPosition();
+    }
+
+    private void MoveToPoolWorldPosition()
+    {
+        if (targetTransform == null)
+            return;
+
+        transform.position = Camera.main.WorldToScreenPoint(targetTransform.position);
+
+        //var pointA = Camera.main.WorldToScreenPoint(targetTransform.position);
+        //Debug.Log("Point A" +pointA);
+        //var pointB = Camera.main.WorldToScreenPoint(fishList[fishList.Count - 1].transform.position);
+        //Debug.Log("Point B" +pointB);
+
+        //var pointC = (pointB - pointA) / 2;
+        //Debug.Log("Point C" +pointC);
+        //throw new NotImplementedException();
+        //transform.position = pointC;
+    }
+
+    protected override bool ClearedIfEmpty(int newData, int secondaryData)
+    {
+        if (fishList == null)
+            fishList = new List<GameObject>();
+
+        if (unavailableFishList == null)
+            unavailableFishList = new List<GameObject>();
+
+        if (secondaryData == 0)
+        {
+            ClearUI();
+            return true;
+        }
+
+        return false;
+    }
+
+    private void FlashRechargeIcons()
+    {
+        if(fadeOut)
+        {
+            currentFlashSpeed -= Time.deltaTime * flashSpeed;
+
+            foreach (GameObject fish in unavailableFishList)
+                fish.GetComponent<Image>().color = 
+                                            new Color(unavailableFishColor.r, 
+                                            unavailableFishColor.g, 
+                                            unavailableFishColor.b, 
+                                            currentFlashSpeed * unavailableFishColor.a);
+
+            if (currentFlashSpeed <= 0)
+                fadeOut = false;
+        }
+        else
+        {
+            currentFlashSpeed += Time.deltaTime * flashSpeed;
+
+            foreach (GameObject fish in unavailableFishList)
+                fish.GetComponent<Image>().color =
+                                            new Color(unavailableFishColor.r,
+                                            unavailableFishColor.g,
+                                            unavailableFishColor.b,
+                                            currentFlashSpeed * unavailableFishColor.a);
+
+            if (currentFlashSpeed >= flashSpeed)
+                fadeOut = true;
+        }
+    }
+
     private void UpdateAvailableFishIcons(int primaryData, int secondaryData)
     {
+        unavailableFishList.Clear();
+
         if(primaryData == 0)
         {
             ClearUI();
@@ -42,7 +125,10 @@ public class FishPoolUIController : BaseUIElement<int, int>
             if (i < primaryData)
                 fishList[i].GetComponent<Image>().color = availableFishColor;
             else
+            {
                 fishList[i].GetComponent<Image>().color = unavailableFishColor;
+                unavailableFishList.Add(fishList[i]);
+            }
         }
     }
 
@@ -68,31 +154,6 @@ public class FishPoolUIController : BaseUIElement<int, int>
                 fishList.RemoveAt(i);
             }
         }
-    }
-
-    public void InitUIController(Transform targetTransform)
-    {
-        this.targetTransform = targetTransform;
-        fishList = new List<GameObject>();
-    }
-
-    protected override bool ClearedIfEmpty(int newData, int secondaryData)
-    {
-        if(secondaryData == 0)
-        {
-            ClearUI();
-            return true;
-        }
-
-        return false;
-    }
-
-    private void Update()
-    {
-        if (targetTransform == null)
-            return;
-
-        transform.position = Camera.main.WorldToScreenPoint(targetTransform.position);
     }
 
     private void ClearUI()

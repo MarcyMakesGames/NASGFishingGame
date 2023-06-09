@@ -11,9 +11,11 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float shipMoveSpeed;
     [SerializeField] private float upgradeMoveSpeed;
     [SerializeField] private Transform shipTransform;
+    [SerializeField] private AudioSource audioSource;
 
     private PlayerInput playerInput;
     private bool gameStarted = false;
+    private bool playingAudio = false;
 
     public void UpgradeMoveSpeed()
     {
@@ -34,8 +36,23 @@ public class MovementController : MonoBehaviour
 
         MoveShip(GetMoveInput());
         TakeAction();
+        PlayAudio();
     }
-    
+
+    private void PlayAudio()
+    {
+        if(!playingAudio)
+        {
+            audioSource.Stop();
+            return;
+        }
+        else
+        {
+            if(!audioSource.isPlaying)
+                audioSource.Play();
+        }
+    }
+
     private void EnablePlayerMovement()
     {
         gameStarted = true;
@@ -50,6 +67,13 @@ public class MovementController : MonoBehaviour
 
     private void MoveShip(Vector2 moveDir)
     {
+        if(moveDir == Vector2.zero)
+        {
+            playingAudio = false;
+            return;
+        }
+
+        playingAudio = true;
         shipTransform.position += new Vector3(moveDir.x, moveDir.y, 0) * (shipMoveSpeed * Time.deltaTime);
     }
 
